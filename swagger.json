@@ -1,0 +1,125 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "description":"<H1>This is the api for users<H1>"
+    },
+    "tags":[
+        {
+            "name":"PUBLIC ROUTE",
+            "description":"Public Route"
+        }
+    ],
+    "paths":{
+        "/health":{
+            "summary":"Testing user Check",
+            "get":{
+                "description":"User Api Health Check",
+                "tags":["PUBLIC ROUTE"],
+                "responses":{
+                    "200":{
+                        "description":"User Health Pass"
+                    }
+                }
+            }
+        },
+        "/users":{
+            "summary":"Testing user routes",
+            "get":{
+                "description":"User Api Health Check",
+                "tags":["PUBLIC ROUTE"],
+                "parameters":[
+                    {
+                        "in":"query",
+                        "name":"role",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose role as admin or user"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"User Health Pass"
+                    }
+                }
+            }
+        },
+        "/users/{id}":{
+            "summary":"Testing user routes",
+            "get":{
+                "description":"User Api Health Check",
+                "tags":["PUBLIC ROUTE"],
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "required":true,
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"specify userId"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"User Health Pass"
+                    }
+                }
+            }
+        },
+        "/addUser":{
+            "summary":"Testing Add User Route",
+            "post":{
+                "description":"User Add User Route for the app",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id": "64474493ba2ded19c8b40dd7",
+                                "name": "Parul",
+                                "city": "Venice",
+                                "phone": "9876543211",
+                                "role": "Admin",
+                                "isActive": true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Health Pass"
+                    }
+                }
+            }
+        },
+        "/delete/{id}":{
+            "summary":"Testing delete User Route",
+            "delete":{
+                "description":"User DeleteAdd User Route for the app",
+                "tags":["PUBLIC ROUTE"],
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "required":true,
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"specify userId"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"User Health Pass"
+                    }
+                }
+            }
+        }
+    }
+}
